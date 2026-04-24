@@ -61,10 +61,7 @@ Then visit:
 ### Seed Data (optional, for manual testing)
 
 ```bash
-python manage.py shell -c "
-from section1.tests import OrderSummaryQueryTest
-OrderSummaryQueryTest.setUpTestData()
-print('Seeded 50 orders with 150 items')
+python manage.py shell -c "from django.contrib.auth.models import User; from section1.models import Customer, Product, Order, OrderItem; u = User.objects.create_user('testuser', password='pass'); c = Customer.objects.create(user=u, phone='1234567890'); products = [Product.objects.create(name=f'Product {i}', sku=f'SKU-{i}', price=10+i) for i in range(10)]; [OrderItem.objects.create(order=Order.objects.create(customer=c, status='confirmed', total_amount=30+i), product=products[j%10], quantity=j+1, unit_price=products[j%10].price) for i in range(50) for j in range(3)]; print('Seeded: 1 customer, 50 orders, 150 items')"
 "
 ```
 
