@@ -1,10 +1,12 @@
 # Artikate Studio — Backend Developer Assessment
 
-## Quick Start (< 5 minutes)
-
+**Repository:** [https://github.com/suraj7880314386/artikate-backend-assessment](https://github.com/suraj7880314386/artikate-backend-assessment)
 
 ## Optional: Live System Recording
-(https://drive.google.com/file/d/1oVv75PKHKQeeujmBwnxVEyTk6eWzudg0/view?usp=sharing)
+
+[Live Demo Recording](https://drive.google.com/file/d/1oVv75PKHKQeeujmBwnxVEyTk6eWzudg0/view?usp=sharing)
+
+## Quick Start (< 5 minutes)
 
 ### Prerequisites
 - Python 3.10+
@@ -15,8 +17,8 @@
 
 ```bash
 # Clone and enter the project
-git clone <repo-url>
-cd artikate_assessment
+git clone https://github.com/suraj7880314386/artikate-backend-assessment.git
+cd artikate-backend-assessment
 
 # Create virtual environment
 python -m venv venv
@@ -52,7 +54,7 @@ python manage.py runserver
 ```
 
 Then visit:
-- `http://localhost:8000/silk/` — Django Silk profiler UI
+- `http://localhost:8000/silk/` — Django Silk profiler summary (JSON)
 - `http://localhost:8000/api/orders/summary/?customer_id=1` — Fixed endpoint
 - `http://localhost:8000/api/orders/summary/broken/?customer_id=1` — Broken endpoint (for comparison)
 
@@ -80,7 +82,8 @@ artikate_assessment/
 ├── artikate_project/      ← Django project config
 │   ├── settings.py
 │   ├── urls.py
-│   └── celery.py
+│   ├── celery.py
+│   └── profiler_view.py
 ├── section1/              ← Diagnose a Broken System
 │   ├── models.py          ← Order, OrderItem, Product, Customer
 │   ├── serializers.py     ← Broken vs Fixed serializers
@@ -112,3 +115,7 @@ artikate_assessment/
 | Thread-local for tenant context | Standard approach for sync Django. See ANSWERS.md for async discussion. |
 | Fail-closed rate limiter | Protects the email provider API key over email latency. |
 | `acks_late=True` globally | Ensures crash recovery at the cost of possible re-delivery (handled via idempotency). |
+
+---
+
+
