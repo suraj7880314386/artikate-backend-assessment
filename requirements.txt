@@ -1,0 +1,11 @@
+django>=4.2,<5.0
+djangorestframework>=3.14
+django-silk>=5.0,<5.4
+celery>=5.3
+redis>=5.0
+fakeredis>=2.20
+
+# Optional: install fakeredis[lua] for Lua script support in tests.
+# The rate limiter auto-detects and falls back to pipeline mode without it.
+# On Linux/macOS: pip install fakeredis[lua]
+# On Windows: may require lupa build tools; pipeline fallback works fine.
